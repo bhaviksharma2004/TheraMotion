@@ -1,3 +1,5 @@
+Backend/node_modules
+Backend/.env
 FrontEnd/src/components/extra
 FrontEnd/public/uploads
 FrontEnd/node_modules
