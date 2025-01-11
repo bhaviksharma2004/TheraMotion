@@ -34,65 +34,60 @@ export const routes = [
                 element: <SignIn />,
             },
             {
-                element: <ProtectedRoute />,
+                path: "/meet-team",
+                element: <MeetTeamLayout />,
                 children: [
                     {
-                        path: "/meet-team",
-                        element: <MeetTeamLayout />,
-                        children: [
-                            {
-                                index: true,
-                                element: <MeetTeam />,
-                            },
-                            {
-                                path: ":personId",
-                                element: <PersonDetail />,
-                            },
-                        ],
+                        index: true,
+                        element: <MeetTeam />,
                     },
                     {
-                        path: "/join-team",
-                        element: <JoinTeam />,
-                    },
-                    {
-                        path: "/services",
-                        element: <Services />,
-                    },
-                    {
-                        path: "/blog",
-                        element: <Blog />,
-                    },
-                    {
-                        path: "/profile",
-                        element: <UserProfile />,
-                    },
-                    {
-                        path: "/book-appointment",
-                        element: <BookAppt />,
-                    },
-                    {
-                        path: "/person",
-                        element: <PersonSelectLayout />,
-                        children: [
-                            {
-                                index: true,
-                                element: <Personselect />,
-                            },
-                            {
-                                path: "calendar",
-                                element: <Calendar />,
-                            },
-                        ],
-                    },
-                    {
-                        path: "/form",
-                        element: <Finalform />,
-                    },
-                    {
-                        path: "/order",
-                        element: <OrderDetail />,
+                        path: ":personId",
+                        element: <PersonDetail />,
                     },
                 ],
+            },
+            {
+                path: "/join-team",
+                element: <JoinTeam />,
+            },
+            {
+                path: "/services",
+                element: <Services />,
+            },
+            {
+                path: "/blog",
+                element: <Blog />,
+            },
+            {
+                path: "/profile",
+                element: <UserProfile />,
+            },
+            {
+                path: "/book-appointment",
+                element: <BookAppt />,
+            },
+            {
+                path: "/person",
+                element: <PersonSelectLayout />,
+                children: [
+                    {
+                        index: true,
+                        element: <Personselect />,
+                    },
+                    {
+                        path: "calendar",
+                        element: <Calendar />,
+                    },
+                ],
+            },
+            {
+                path: "/form",
+                element: <Finalform />,
+            },
+            {
+                path: "/order",
+                element: <OrderDetail />,
             },
         ],
     },

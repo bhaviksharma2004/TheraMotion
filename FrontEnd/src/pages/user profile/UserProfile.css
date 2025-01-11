@@ -1,0 +1,471 @@
+.userprofile {
+    min-height: 100vh;
+    background-color: #f9fafb;
+}
+
+/* Header Section */
+.section1 {
+    padding: 2vh;
+    background-color: #ebecec;
+}
+
+.section1 .container {
+    max-width: 1200px;
+    background: url("/Background-icon-dark.png") no-repeat right;
+    background-size: auto;
+}
+
+.section1 .heading1 {
+    color: #2b2e34;
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    line-height: 1.25;
+    margin-bottom: 1rem;
+}
+
+.section1 .buttons {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.section1 .buttons a {
+    color: #2b2e34;
+    text-decoration: none;
+    font-size: 0.875rem;
+    transition: color 0.2s ease;
+}
+
+.section1 .buttons a:hover {
+    color: #4a4f5a;
+}
+
+/* Main Content Layout */
+.profile-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: clamp(1rem, 3vw, 2rem);
+}
+
+.profile-layout {
+    display: flex;
+    gap: clamp(1rem, 3vw, 2rem);
+}
+
+/* Sidebar Styles */
+.profile-sidebar {
+    width: 280px;
+    flex-shrink: 0;
+}
+
+.photo-section {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+    transition: box-shadow 0.3s ease;
+}
+
+.photo-section:hover {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06);
+}
+
+.profile-photo {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 1rem;
+}
+
+.profile-photo img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #f3f4f6;
+}
+
+.edit-photo-btn {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background: #2b2e34;
+    color: white;
+    border: none;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.edit-photo-btn:hover {
+    transform: scale(1.1);
+    background: #404348;
+}
+
+.profile-name {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-top: 1rem;
+    color: #2b2e34;
+    text-align: center;
+}
+
+/* Navigation Tabs */
+.navigation-tabs {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.tab-btn {
+    padding: 1rem;
+    text-align: left;
+    background: none;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.2s ease;
+}
+
+.tab-btn:hover {
+    background: #f3f4f6;
+    border-color: #e5e7eb;
+}
+
+.tab-btn.active {
+    background: #2b2e34;
+    color: white;
+    font-weight: 500;
+}
+
+/* Main Content Area */
+.main-content {
+    flex: 1;
+    min-width: 0; /* Prevents flex item from overflowing */
+}
+
+.profile-info {
+    background: #fff;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+}
+
+.info-row {
+    padding: 1rem 0;
+    border-bottom: 1px solid #f3f4f6;
+}
+
+.info-row:last-child {
+    border-bottom: none;
+}
+
+.info-label {
+    color: #6b7280;
+    font-size: 0.875rem;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.info-value {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1rem;
+    color: #2b2e34;
+}
+
+.info-value input {
+    padding: 0.5rem;
+    border: 1px solid #e5e7eb;
+    border-radius: 6px;
+    font-size: 1rem;
+    width: 100%;
+    max-width: 300px;
+}
+
+.edit-btn, .save-btn {
+    background: none;
+    border: none;
+    color: #6b7280;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+
+.edit-btn:hover {
+    color: #2b2e34;
+    background: #f3f4f6;
+}
+
+.save-btn {
+    background: #2b2e34;
+    color: white;
+    padding: 0.5rem 1rem;
+}
+
+.save-btn:hover {
+    background: #404348;
+}
+
+/* Bookings Section */
+.bookings-section {
+    background: #fff;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+}
+
+.bookings-section h2, .bookings-section h3 {
+    color: #2b2e34;
+    font-weight: 600;
+}
+
+.bookings-section h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.bookings-section h3 {
+    font-size: 1.25rem;
+    margin: 1.5rem 0 1rem;
+}
+
+.booking-card {
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.booking-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.booking-card.faded {
+    opacity: 0.7;
+    background: #f9fafb;
+}
+
+.booking-info .service {
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+    color: #2b2e34;
+}
+
+.booking-info .date-time {
+    color: #6b7280;
+    font-size: 0.875rem;
+}
+
+.booking-info .status {
+    color: #059669;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+    font-weight: 500;
+}
+
+/* Modal Styles */
+.upload-photo-modal {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 50;
+}
+
+.upload-photo-modal .upload-content {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 400px;
+}
+
+.upload-buttons{
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.upload-photo-modal button {
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.upload-photo-modal button:hover {
+    background-color: #0056b3;
+}
+
+/* Tooltip */
+.info-btn {
+    position: relative;
+    font-size: 1.2em;
+    width: 24px;
+    height: 24px;
+    border-radius: 100%;
+    background: #f3f4f6;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tooltip {
+    visibility: hidden;
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    font-size: 0.875rem;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.2s ease, visibility 0.2s ease;
+}
+
+.info-btn:hover .tooltip {
+    visibility: visible;
+    opacity: 1;
+}
+
+.delete-account-section {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid #f3f4f6;
+}
+
+.delete-account-section h3 {
+    color: #dc2626;
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.warning-text {
+    color: #6b7280;
+    font-size: 0.875rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.warning-text i {
+    color: #dc2626;
+}
+
+.delete-account-btn {
+    background-color: #dc2626;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.2s ease;
+}
+
+.delete-account-btn:hover {
+    background-color: #b91c1c;
+}
+
+.delete-account-btn i {
+    font-size: 1rem;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .profile-layout {
+        flex-direction: column;
+    }
+
+    .profile-sidebar {
+        width: 100%;
+    }
+
+    .navigation-tabs {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .tab-btn {
+        flex: 1;
+        min-width: 120px;
+        text-align: center;
+    }
+
+    .info-value {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+    }
+    
+    .info-value input {
+        flex: 1;
+        min-width: 0;
+    }
+    
+    .edit-btn {
+        flex-shrink: 0;
+    }
+
+    .delete-account-section {
+        margin-top: 1.5rem;
+        padding-top: 1.5rem;
+    }
+}
+
+@media screen and (max-width: 527px) {
+    .section1 {
+        padding: 1.5rem 1rem;
+    }
+
+    .section1 .buttons {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .section1 .heading1 {
+        font-size: 1.5rem;
+    }
+
+    .profile-content {
+        padding: 1rem;
+    }
+
+    .booking-card {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+}
