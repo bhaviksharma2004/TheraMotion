@@ -1,6 +1,9 @@
-Backend/node_modules
-Backend/.env
+BackEnd/node_modules
+BackEnd/package-lock.json
+BackEnd/config/dbconnection.js
+BackEnd/.gitignore
+BackEnd/.env
 FrontEnd/src/components/extra
 FrontEnd/public/uploads
-FrontEnd/node_modules
 .vscode
+FrontEnd/.env
