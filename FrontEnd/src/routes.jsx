@@ -9,12 +9,61 @@ import Blog from "./pages/blog/Blog.jsx";
 import UserProfile from "./pages/user profile/UserProfile.jsx"
 import MeetTeamLayout from "./pages/meet team/MeetTeamLayout.jsx";
 import PersonDetail from "./components/PersonDetails/PersonDetails.jsx";
+import { Outlet, Navigate, useNavigate } from "react-router-dom";
 import BookAppt from "./pages//book appointment/BookAppt.jsx";
 import Personselect from "./components/Personselect/Personselect";
 import Calendar from "./components/Calender/Calendar";
 import Finalform from "./pages/forms/Finalform.jsx";
 import OrderDetail from "./pages/book appointment/OrderDetail.jsx";
 import PersonSelectLayout from "./pages/book appointment/PersonSelectLayout.jsx";
+import { jwtDecode } from "jwt-decode";
+import { useState, useEffect } from "react";
+
+export const authEvent = new EventTarget();
+
+const ProtectedRoute = () => {
+    const [isAuthenticated, setIsAuthenticated] = useState(true);
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        const checkAuthToken = () => {
+            const authToken = localStorage.getItem("authToken");
+
+            if (authToken) {
+                try {
+                    const decodedToken = jwtDecode(authToken);
+                    const currentTime = Date.now() / 1000;
+
+                    if (decodedToken.exp < currentTime) {
+                        handleLogout();
+                    }
+                } catch (error) {
+                    handleLogout();
+                }
+            } else {
+                setIsAuthenticated(false);
+            }
+        };
+
+        const handleLogout = () => {
+            localStorage.removeItem("authToken");
+            localStorage.removeItem("loggedInUserEmail");
+            localStorage.removeItem("userDetails");
+            setIsAuthenticated(false);
+            authEvent.dispatchEvent(new Event('authStateChanged'));
+            alert("Your session has expired. Please sign in again.");
+            navigate("/signin");
+        };
+
+        checkAuthToken();
+        const interval = setInterval(checkAuthToken, 5 * 60 * 1000);
+
+        return () => clearInterval(interval);
+    }, [navigate]);
+
+    return isAuthenticated ? <Outlet /> : <Navigate to="/signin" replace />;
+};
+
 
 export const routes = [
     {
@@ -34,60 +83,65 @@ export const routes = [
                 element: <SignIn />,
             },
             {
-                path: "/meet-team",
-                element: <MeetTeamLayout />,
+                element: <ProtectedRoute />,
                 children: [
                     {
-                        index: true,
-                        element: <MeetTeam />,
+                        path: "/meet-team",
+                        element: <MeetTeamLayout />,
+                        children: [
+                            {
+                                index: true,
+                                element: <MeetTeam />,
+                            },
+                            {
+                                path: ":personId",
+                                element: <PersonDetail />,
+                            },
+                        ],
                     },
                     {
-                        path: ":personId",
-                        element: <PersonDetail />,
+                        path: "/join-team",
+                        element: <JoinTeam />,
+                    },
+                    {
+                        path: "/services",
+                        element: <Services />,
+                    },
+                    {
+                        path: "/blog",
+                        element: <Blog />,
+                    },
+                    {
+                        path: "/profile",
+                        element: <UserProfile />,
+                    },
+                    {
+                        path: "/book-appointment",
+                        element: <BookAppt />,
+                    },
+                    {
+                        path: "/person",
+                        element: <PersonSelectLayout />,
+                        children: [
+                            {
+                                index: true,
+                                element: <Personselect />,
+                            },
+                            {
+                                path: "calendar",
+                                element: <Calendar />,
+                            },
+                        ],
+                    },
+                    {
+                        path: "/form",
+                        element: <Finalform />,
+                    },
+                    {
+                        path: "/order",
+                        element: <OrderDetail />,
                     },
                 ],
-            },
-            {
-                path: "/join-team",
-                element: <JoinTeam />,
-            },
-            {
-                path: "/services",
-                element: <Services />,
-            },
-            {
-                path: "/blog",
-                element: <Blog />,
-            },
-            {
-                path: "/profile",
-                element: <UserProfile />,
-            },
-            {
-                path: "/book-appointment",
-                element: <BookAppt />,
-            },
-            {
-                path: "/person",
-                element: <PersonSelectLayout />,
-                children: [
-                    {
-                        index: true,
-                        element: <Personselect />,
-                    },
-                    {
-                        path: "calendar",
-                        element: <Calendar />,
-                    },
-                ],
-            },
-            {
-                path: "/form",
-                element: <Finalform />,
-            },
-            {
-                path: "/order",
-                element: <OrderDetail />,
             },
         ],
     },
