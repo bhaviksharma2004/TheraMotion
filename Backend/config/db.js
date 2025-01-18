@@ -1,11 +1,11 @@
 import mongoose from "mongoose";
 
-async function connectDB(){
+export const connectDB = async () => {
     try {
-        await mongoose.connect("mongodb+srv://bhaviksharma13dec:bhavik123@cluster0.abz8s.mongodb.net/theramotion");
-        console.log("MongoDB Connected");
+        const conn = await mongoose.connect(process.env.MONGO_URI);
+        console.log(`MongoDB Connected: ${conn.connection.host}`);
     } catch (err) {
-        console.log("Error: ", err.message);
+        console.error(`Error: ${err.message}`);
+        process.exit(1);
     }
 };
-export default connectDB;
