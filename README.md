@@ -59,7 +59,6 @@ TheraMotion is a healthcare service providing platform that enables users to boo
 - [MongoDB](https://www.mongodb.com/) - Database
 - [JWT](https://jwt.io/) - Authentication
 - [bcrypt](https://github.com/kelektiv/node.bcrypt.js) - Password hashing
-- [Multer](https://www.npmjs.com/package/multer) - Middleware for handling file uploads.
 - [Razorpay](https://razorpay.com/) - Integration for secure online payments.
 
 ## Quick Start
