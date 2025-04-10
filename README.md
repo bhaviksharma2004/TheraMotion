@@ -1,7 +1,7 @@
 # TheraMotion
 
 <div align="center">
-    <img src="http://ec2-13-53-107-89.eu-north-1.compute.amazonaws.com:8080/logo.png" alt="Banner Image" />
+    <img src="FrontEnd/public/logo.png" alt="Banner Image" />
 
   _Helping you moving move through life._
 </div>
