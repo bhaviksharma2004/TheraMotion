@@ -10,7 +10,7 @@
 
 TheraMotion is a healthcare service providing platform that enables users to book healthcare services effortlessly. Built with modern web technologies, the platform provides features such as join our team, meet our team, book an appointment, user authentication, and engaging with blogs.
 
-[Hosted Website](https://thera-motion.vercel.app/)
+<a href="https://thera-motion.vercel.app/" target="_blank">Hosted Website</a>
 
 
 ## Key Features
